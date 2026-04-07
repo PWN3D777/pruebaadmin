@@ -8,11 +8,12 @@ spring:
       initialization-fail-timeout: -1  # <--- no fallar si DB no está lista
   jpa:
     hibernate:
-      ddl-auto: none   #  IMPORTANTE
+      ddl-auto: none
     properties:
       hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect   # ESTE ES EL FIX
         temp:
-          use_jdbc_metadata_defaults: false  #  evita el crash
+          use_jdbc_metadata_defaults: false
     show-sql: false
 
 server:
