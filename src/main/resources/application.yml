@@ -4,6 +4,8 @@ spring:
     driverClassName: org.postgresql.Driver
     username:  ${POSTGRESQL_USER:postgres}
     password: ${POSTGRESQL_PASSWORD:IoTPass1234}
+    hikari:
+      initialization-fail-timeout: -1  # <--- no fallar si DB no está lista
   jpa:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
     hibernate:
