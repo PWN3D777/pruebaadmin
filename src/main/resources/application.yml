@@ -7,9 +7,13 @@ spring:
     hikari:
       initialization-fail-timeout: -1  # <--- no fallar si DB no está lista
   jpa:
-    database-platform: org.hibernate.dialect.PostgreSQLDialect
     hibernate:
-      ddl-auto: update
+      ddl-auto: none   #  IMPORTANTE
+    properties:
+      hibernate:
+        temp:
+          use_jdbc_metadata_defaults: false  #  evita el crash
     show-sql: false
+
 server:
   port: ${ADMIN_SERVICE_PORT:8081}
